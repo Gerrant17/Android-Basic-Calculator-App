@@ -40,12 +40,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String num2 = etSecond.getText().toString();
         switch(view.getId()){
             case R.id.btnAdd:
-                int addition = Integer.parseInt(num1) + Integer.parseInt(num2);
-                tvResult.setText(String.valueOf(addition));
+                try{
+                    int addition = Integer.parseInt(num1) + Integer.parseInt(num2);
+                    tvResult.setText(String.valueOf(addition));
+                }catch(Exception e){
+                    tvResult.setText("Cannot ADD!");
+                }
                 break;
             case R.id.btnSubtract:
-                int subtraction = Integer.parseInt(num1) - Integer.parseInt(num2);
-                tvResult.setText(String.valueOf(subtraction));
+                try{
+                    int subtraction = Integer.parseInt(num1) - Integer.parseInt(num2);
+                    tvResult.setText(String.valueOf(subtraction));
+                }catch(Exception e){
+                    tvResult.setText("Cannot SUBTRACT!");
+                }
                 break;
             case R.id.btnDivide:
                 try{
@@ -56,8 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.btnMultiply:
+                try{
                 int multiply = Integer.parseInt(num1) * Integer.parseInt(num2);
                 tvResult.setText(String.valueOf(multiply));
+                }catch(Exception e){
+                    tvResult.setText("Cannot MULTIPLY!");
+                }
                 break;
         }
     }
